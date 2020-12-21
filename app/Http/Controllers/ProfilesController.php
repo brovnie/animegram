@@ -11,8 +11,12 @@ class ProfilesController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($user)
     {
-        return view('home');
+        //dd($user); 
+        $user = \App\Models\User::find($user);
+        return view('home', [
+            'user' => $user
+        ]);
     }
 }
