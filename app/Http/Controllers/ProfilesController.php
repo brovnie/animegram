@@ -14,9 +14,11 @@ class ProfilesController extends Controller
     public function index($user)
     {
         //dd($user); 
-        $user = \App\Models\User::find($user);
-        return view('home', [
-            'user' => $user
+        $data = \App\Models\User::findOrFail($user);
+
+        return view('profiles.index', [
+            'user' => $data
         ]);
+
     }
 }
