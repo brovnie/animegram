@@ -52,7 +52,7 @@ class User extends Authenticatable
                 'title' => $user->username,
             ]);
 
-            Mail::to($user->email)->send( new WelcomeNewUser() );
+          //  Mail::to($user->email)->send( new WelcomeNewUser() );
         });
     }
 
@@ -61,7 +61,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
     }
 
-    public function following() 
+    public function following()
     {
         return $this->belongsToMany(Profile::class);
     }

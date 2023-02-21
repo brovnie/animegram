@@ -1,1 +1,1 @@
-Instagram (clone) for anime character
+Instagram clone
