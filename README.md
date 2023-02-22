@@ -1,5 +1,9 @@
 # Instagram clone
 
+Clon of the instagram website build with Vue and Laravel.
+Made in: 2020
+Last update: 2022
+
 ## Technology used:
 
 -   Vue.js v2.6.12
