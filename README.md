@@ -1,7 +1,5 @@
 # Instagram clone
 
----
-
 ## Technology used:
 
 -   Vue.js v2.6.12
@@ -9,8 +7,6 @@
 -   PHP v8.0.28
 -   MySQL v8.0.32
 -   Docker
-
----
 
 ## How to run:
 
@@ -88,5 +84,4 @@ Clear laravel cache
 docker-compose exec laravel.test php artisan config:clear
 docker-compose exec laravel.test php artisan route:clear
 docker-compose exec laravel.test php artisan view:clear
-
 ```
