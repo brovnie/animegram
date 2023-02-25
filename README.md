@@ -74,15 +74,20 @@ Run laravel app
 docker-compose exec laravel.test php artisan serve
 ```
 
-### Troubleshooting
+## Paths
 
-#### Update composer
+Home: http://localhost
+phpmyadmin: http://localhost:8080/
+
+## Troubleshooting
+
+### Update composer
 
 ```
 docker-compose exec laravel.test composer update
 ```
 
-#### Clear laravel cache
+### Clear laravel cache
 
 ```
 docker-compose exec laravel.test php artisan config:clear
@@ -90,7 +95,7 @@ docker-compose exec laravel.test php artisan route:clear
 docker-compose exec laravel.test php artisan view:clear
 ```
 
-#### npm run premission error
+### npm run premission error
 
 ```
 glob error [Error: EACCES: permission denied, scandir '/root/.npm/_logs'] {
