@@ -4,7 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="{{ $user->profile->profileImage() }}" style="max-height: 170px;" class="rounded-circle w-100" alt="">
+
+            <img src="$user->profile->profileImage()}}" onerror="this.onerror=null;this.src='/images/png/default_avatar.png';" style="max-height: 170px;" class="rounded-circle w-100" alt="">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
@@ -12,7 +13,7 @@
                     <div class="h4">{{ $user->username ?? 'n/a' }}</div>
                     <follow-button user-id="{{$user->id}}" follows="{{ $follows }}"></follow-button>
                 </div>
-                
+
                 @can('update', $user->profile)
                 <a href="/post/create">Add new post</a>
                 @endcan

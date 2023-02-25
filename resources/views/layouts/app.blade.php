@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
-                <div><img src="/svg/ghost.svg" class="pr-3" style=" border-right:1px solid #333;" height="30px"></div>
+                <div><img src="/images/svg/ghost.svg" class="pr-3" style=" border-right:1px solid #333;" height="30px"></div>
                 <div class="pl-3 pt-1">Animegram</div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
