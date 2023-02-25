@@ -5,38 +5,40 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use App\Models\Profile;
+
 
 class PostController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    public function index() 
+    public function index()
     {
         $users = auth()->user()->following()->pluck('profiles.user_id');
-        $posts = Post::whereIn('user_id', $users)->with('user')->/*orderBy('created_at', 'DESC')*/latest()->/*get()*/paginate(5);
-        
-        return view('posts.index', compact('posts'));
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+        $suggestedUsers = Profile::where('user_id', '!=', auth()->user()->id)->whereNotIn('user_id', $users)->orderByRaw('RAND()')->take(6)->get();
+        return view('posts.index', compact('posts','suggestedUsers'));
     }
 
-    public function create() 
+    public function create()
     {
         return view('posts.create');
     }
 
     public function store()
     {
-        
+
         $data = request()->validate([
             'caption' => 'required',
             'image' => ['required', 'image']
         ]);
-        
+
         $imagePath = request('image')->store('uploads', 'public');
-        
+
         //resize img in px
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
         $image->save();
@@ -46,9 +48,9 @@ class PostController extends Controller
                 'image' => $imagePath
             ]);
 
-        
+
         return redirect('/profile/'. auth()->user()->id);
-        
+
     }
 
     //show

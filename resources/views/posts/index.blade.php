@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container">
+    <div>
+        <h2>Suggestions</h2>
+        <div class="row mt-4 mb-3">
+            @foreach($suggestedUsers as $user)
+            <div class="pr-5">
+                <a href="/profile/{{$user->id}}" alt="Link to profile {{$user->title}}">
+                <img src="$user->profileImage()}}" onerror="this.onerror=null;this.src='/images/png/default_avatar.png';" style="max-height: 170px;" class="rounded-circle" width="80px" height="80px" alt="">
+                <p class="text-center font-weight-bold">{{$user->title}}</p>
+                </a>
+            </div>
+        @endforeach
+        </div>
+    </div>
 @if($posts->isEmpty())
     <div class="row">
         <div>
@@ -10,6 +23,7 @@
             <p>Please follow the users to see the posts</p>
         </div>
     </div>
+
 @else
     @foreach($posts as $post)
         <div class="row">

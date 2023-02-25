@@ -15,14 +15,6 @@ class ProfilesController extends Controller
      */
     public function index(\App\Models\User $user)
     {
-        //dd($user); -  print out data
-
-        /*set up manually 
-       $data = \App\Models\User::findOrFail($user);
-
-        return view('profiles.index', [
-            'user' => $data
-        ]);*/
         $follows = (auth()->user()) ?  auth()->user()->following->contains($user->id) : false;
 
         $postCounts = Cache::remember(

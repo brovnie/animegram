@@ -109,7 +109,7 @@ glob error [Error: EACCES: permission denied, scandir '/root/.npm/_logs'] {
 **Solution:** run npm from sail
 
 ```
-docker-compose exec  laravel.test sh
+docker-compose exec laravel.test sh
 su sail
 npm run watch
 ```
