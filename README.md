@@ -44,6 +44,8 @@ Run npm
 docker-compose exec laravel.test npm run dev
 ```
 
+errno: -13 look at troubleshooting
+
 ### Laravel
 
 Set app key
@@ -74,18 +76,35 @@ docker-compose exec laravel.test php artisan serve
 
 ### Troubleshooting
 
-List of commands that can be helpful:
-
-Update composer
+#### Update composer
 
 ```
 docker-compose exec laravel.test composer update
 ```
 
-Clear laravel cache
+#### Clear laravel cache
 
 ```
 docker-compose exec laravel.test php artisan config:clear
 docker-compose exec laravel.test php artisan route:clear
 docker-compose exec laravel.test php artisan view:clear
+```
+
+#### npm run premission error
+
+```
+glob error [Error: EACCES: permission denied, scandir '/root/.npm/_logs'] {
+  errno: -13,
+  code: 'EACCES',
+  syscall: 'scandir',
+  path: '/root/.npm/_logs'
+}
+```
+
+**Solution:** run npm from sail
+
+```
+docker-compose exec  laravel.test sh
+su sail
+npm run watch
 ```
