@@ -53,6 +53,11 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                            <a href="/search" alt="Search" class="pl-2 pr-2 h-100 d-flex justify-center items-center" >
+                                <img src="/images/svg/search.svg" alt="Search" width="25"/>
+                            </a>
+</li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
